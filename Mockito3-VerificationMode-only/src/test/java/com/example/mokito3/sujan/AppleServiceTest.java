@@ -6,6 +6,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.only;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -21,6 +23,8 @@ public class AppleServiceTest {
         String apple = appleService.processApple("Macintosh");
         verify(appleService, times(1)).processApple("Macintosh");
         verify(appleService, times(0)).saveApple("Macintosh");
+        verify(appleService, only()).processApple("Macintosh");
+        verify(appleService, atLeast(1)).processApple("Macintosh");
         assertEquals("i have apple", apple);
     }
 
@@ -30,6 +34,8 @@ public class AppleServiceTest {
         String apple = appleService.saveApple("Macintosh");
         verify(appleService, times(1)).saveApple("Macintosh");
         verify(appleService, times(0)).processApple("Macintosh");
+        verify(appleService, only()).saveApple("Macintosh");
+        verify(appleService, atLeast(1)).saveApple("Macintosh");
         assertEquals("i have apple", apple);
     }
 }

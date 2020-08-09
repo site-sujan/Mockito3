@@ -6,8 +6,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class AppleServiceTest {
@@ -16,7 +16,7 @@ public class AppleServiceTest {
 
     @Test
     void saveAppleWithMockTest() {
-        doAnswer(invocation -> "Macintosh").when(appleService).saveApple("Macintosh");
+        when(appleService.saveApple("Macintosh")).thenReturn("i have apple");
         appleService.saveApple("Macintosh");
         appleService.getApple("Macintosh");
         verify(appleService).saveApple("Macintosh");

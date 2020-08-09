@@ -13,10 +13,15 @@ public class AppleServiceTest {
     private AppleService appleServiceAnnotation;
 
     @Test
-    void saveAppleMockTest() {
+    void saveAppleWithStaticMockTest() {
         AppleService appleServiceStaticMock = mock(AppleService.class);
         String macintoshStaticMock = appleServiceStaticMock.saveApple("Macintosh");
+        System.out.println("macintoshStaticMock = " + macintoshStaticMock + " macintoshStaticMock = " + macintoshStaticMock);
+    }
+
+    @Test
+    void saveAppleWithAnnotationMockTest() {
         String macintoshAnnotation = appleServiceAnnotation.saveApple("Macintosh");
-        System.out.println("macintoshStaticMock = " + macintoshStaticMock + " macintoshAnnotation = " + macintoshAnnotation);
+        System.out.println("macintoshAnnotation = " + macintoshAnnotation + " macintoshAnnotation = " + macintoshAnnotation);
     }
 }
