@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories { jcenter() }
+dependencies {
+    testImplementation('org.junit.jupiter:junit-jupiter:5.6.2')
+    testCompile 'org.mockito:mockito-junit-jupiter:3.4.4'
+}
+test {
+    useJUnitPlatform()
+}

@@ -8,14 +8,12 @@ public class AppleServiceTest {
     @Test
     void saveAppleWithoutMockTest() {
         AppleService appleService = new AppleService();
-        Apple apple = new Apple("macintosh");
-        appleService.saveApple(apple);
+        appleService.saveApple("Macintosh");
     }
 
     @Test
     void saveAppleWithMockTest() {
         AppleService appleService = mock(AppleService.class);
-        Apple apple = new Apple("macintosh");
-        appleService.saveApple(apple);
+        appleService.saveApple("Macintosh");
     }
 }
